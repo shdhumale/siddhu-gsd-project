@@ -1,0 +1,27 @@
+.dashboard-container {
+  padding: 20px;
+  margin: 20px;
+  background: white;
+  border-radius: 8px;
+
+  h2 {
+    margin-bottom: 20px;
+    color: #3f51b5;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+
+    &.new { background-color: #e3f2fd; color: #1976d2; }
+    &.assigned { background-color: #fff3e0; color: #f57c00; }
+    &.done { background-color: #e8f5e9; color: #388e3c; }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "read": {
+      "C:/All_Antigravity_Project_Workspace/siddhu-gsd-project/.opencode/get-shit-done/*": "allow"
+    },
+    "external_directory": {
+      "C:/All_Antigravity_Project_Workspace/siddhu-gsd-project/.opencode/get-shit-done/*": "allow"
+    }
+  }
+}
