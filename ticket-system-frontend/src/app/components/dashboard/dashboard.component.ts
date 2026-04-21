@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Chart, registerables } from 'chart.js/auto';
 import { TicketFormComponent } from '../ticket-form/ticket-form.component';
 import { TicketService, Ticket } from '../../services/ticket.service';
 
@@ -39,12 +40,11 @@ export class DashboardComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'description', 'status', 'actions'];
   dataSource = new MatTableDataSource<Ticket>();
   searchControl = new FormControl('');
-  statusCounts: { [key: string]: number } = {};
-  totalTickets: number = 0;
-  Object = Object;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild('pieCanvas') pieCanvas!: ElementRef;
+  private pieChart: Chart | null = null;
 
   constructor(
     private ticketService: TicketService,
@@ -66,12 +66,49 @@ export class DashboardComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.dataSource.filterPredicate = this.createFilter();
       
-      // Calculate ticket status counts
-      this.statusCounts = {};
-      this.totalTickets = tickets.length;
+      // Calculate ticket status counts for pie chart
+      const statusCounts: { [key: string]: number } = {};
       tickets.forEach(ticket => {
         const status = ticket.status || 'Unknown';
-        this.statusCounts[status] = (this.statusCounts[status] || 0) + 1;
+        statusCounts[status] = (statusCounts[status] || 0) + 1;
+      });
+      
+      // Render pie chart
+      setTimeout(() => {
+        if (this.pieCanvas) {
+          Chart.register(...registerables);
+          
+          if (this.pieChart) {
+            this.pieChart.destroy();
+          }
+          
+          this.pieChart = new Chart(this.pieCanvas.nativeElement, {
+            type: 'pie',
+            data: {
+              labels: Object.keys(statusCounts),
+              datasets: [{
+                data: Object.values(statusCounts),
+                backgroundColor: ['#3498db', '#f39c12', '#27ae60', '#9b59b6', '#e74c3c', '#1abc9c'],
+                borderWidth: 2
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: true,
+              plugins: {
+                legend: {
+                  position: 'right',
+                  labels: {
+                    padding: 20,
+                    font: {
+                      size: 12
+                    }
+                  }
+                }
+              }
+            }
+          });
+        }
       });
     });
   }

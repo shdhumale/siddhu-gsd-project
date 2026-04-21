@@ -64,18 +64,10 @@
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of tickets">
   </mat-paginator>
 
-  <div class="status-summary" style="margin-top: 32px; padding: 20px;">
+  <div style="margin-top: 32px; padding: 20px;">
     <h3 style="margin-bottom: 16px; color: #3f51b5;">Ticket Status Distribution</h3>
-    <div class="status-cards"
-      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px;">
-      <div class="status-card" *ngFor="let status of Object.keys(statusCounts)"
-        style="padding: 16px; border-radius: 8px; text-align: center;">
-        <div class="status-count" style="font-size: 24px; font-weight: bold;">{{ statusCounts[status] }}</div>
-        <div class="status-label" style="text-transform: uppercase; font-size: 12px; margin-top: 4px;">{{ status }}
-        </div>
-        <div class="status-percent" style="font-size: 11px; color: #666; margin-top: 2px;">{{ (statusCounts[status] /
-          totalTickets * 100) | number:'1.0-0' }}%</div>
-      </div>
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 16px;">
+      <canvas #pieCanvas width="400" height="400"></canvas>
     </div>
   </div>
 </div>
