@@ -13,10 +13,10 @@
 - **Goal:** Implement ticket lifecycle and search.
 - **Requirements:** [REQ-002], [REQ-003]
 - **Plans:**
-  - [ ] 02-01: Implement "Create Ticket" form in Angular and POST endpoint in Spring Boot.
-  - [ ] 02-02: Add Search UI and backend filtering logic.
+  - [x] 02-01: Implement "Create Ticket" form in Angular and POST endpoint in Spring Boot.
+  - [x] 02-02: Add Search UI and backend filtering logic.
 - **Verification:** User can create tickets and find them using the search bar.
-- **Status:** Up Next
+- **Status:** Ready to execute
 
 ## Phase 3: Stabilization
 - **Goal:** Polish UI and ensure system integrity.

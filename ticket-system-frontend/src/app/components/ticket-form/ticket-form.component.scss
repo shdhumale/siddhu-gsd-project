@@ -1,0 +1,18 @@
+cls
+
+/* Ticket Form Component Styles */
+.ticket-form-container {
+    min-width: 400px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.full-width {
+    width: 100%;
+    margin-bottom: 8px;
+}

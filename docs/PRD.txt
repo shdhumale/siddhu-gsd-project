@@ -1,13 +1,13 @@
 ## Product Requirements Document (PRD): Simple Ticket Management System
 
-**Version:** 1.0  
+**Version:** 2.0  
 **Status:** Draft  
-**Date:** March 31, 2026
+**Date:** April 21, 2026
 
 ---
 
 ### 1. Executive Summary
-The goal is to build a lightweight, browser-based Ticket Management System using HTML and JavaScript. This tool is designed for simplicity, allowing users to view, create, and search for tickets without the overhead of a database or authentication system.
+The goal is to raise a CR for addinging Create, Update and deleted Functionality on the UI and Back end side for browser-based Ticket Management System using HTML and JavaScript. This tool is designed for simplicity, allowing users to view, create, and search for tickets without the overhead of a database or authentication system.
 
 ---
 
@@ -36,11 +36,25 @@ The goal is to build a lightweight, browser-based Ticket Management System using
     * Status (Dropdown selection: New, Assigned, Done, Escalate).
 * **Action:** A "Save" button to commit the data.
 
-#### 3.3 Search Functionality
-* **Purpose:** Filter and locate specific tickets based on user input.
-* **Input:** A single search bar accepting a string.
-* **Logic:** Matches the string against Ticket Name or Description.
-* **Output:** Displays filtered results in a table identical to the Dashboard format.
+
+#### 3.3 Update existing Ticket
+* **Purpose:** Allow users to update existing entries to the system.
+* **Input Fields:**
+    * Ticket ID (Auto-generated or manual entry).
+    * Name of Ticket (Text input).
+    * Description (Text area).
+    * Status (Dropdown selection: New, Assigned, Done, Escalate).
+* **Action:** A "Update" button to commit the data.
+
+
+#### 3.4 Delete existing Ticket
+* **Purpose:** Allow users to update existing entries to the system.
+* **Input Fields:**
+    * Ticket ID (Auto-generated or manual entry).
+    * Name of Ticket (Text input).
+    * Description (Text area).
+    * Status (Dropdown selection: New, Assigned, Done, Escalate).
+* **Action:** A "Delete" button to delete the data.
 
 ---
 

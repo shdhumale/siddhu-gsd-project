@@ -1,0 +1,11 @@
+{
+  "backed_up_at": "2026-04-21T08:59:00.229Z",
+  "from_version": "1.38.1",
+  "from_manifest_timestamp": "2026-04-20T10:58:42.973Z",
+  "files": [
+    "skills/gsd-debug/SKILL.md"
+  ],
+  "pristine_hashes": {
+    "skills/gsd-debug/SKILL.md": "bd4c2cceea78282c49bb20f102c07e49f50479280356221d836e6ec92dc37927"
+  }
+}
